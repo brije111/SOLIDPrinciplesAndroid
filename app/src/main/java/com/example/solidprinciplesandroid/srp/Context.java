@@ -3,11 +3,6 @@ package com.example.solidprinciplesandroid.srp;
 import android.app.Activity;
 import android.content.SharedPreferences;
 
-/**
- * Created by 51778499 on 05,April,2019
- * Hcl Technologies,
- * India.
- */
 public class Context extends Activity {
 
     @Override
