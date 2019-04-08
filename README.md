@@ -7,7 +7,7 @@ The importance of SOLID comes from the fact that it is practically impossible to
 
 SOLID principle are not rules or laws or perfect truth. It is a good principle or advice in order to write &quot;clean&quot; code.
 
-Developed by American software engineer &amp; instructor Robert C Martin (also known as Uncle Bob) in his 2000 paper &quot;Design principles &amp; design patterns&quot;
+Developed by American software engineer &amp; instructor Robert C Martin (also known as Uncle Bob) in his 2000 paper &quot;Design principles &amp; design patterns&quot;. He is also the author of the &quot;Clean Code&quot;.
 
 It was Michael Feathers (the author of &quot;Working Effectively with Legacy Code&quot;) who &quot;acronymized&quot; these principles to SOLID.
 
@@ -19,7 +19,7 @@ It was Michael Feathers (the author of &quot;Working Effectively with Legacy Cod
 - SRP looks simple on the first glance, but it is, probably, the most difficult SOLID principle to follow in practice.
 - Following SRP is difficult because &quot;reasons to change&quot; become certain only in the future, when requirements actually change. At design time, all we can do is estimate which requirements are likely to change and which are stable. In other words, following SRP inevitably involves some amount of prophetic work.
 - In addition to being the most difficult to implement, SRP is also the most fundamental SOLID principle. The more the design violates SRP, the less the gain from application of other SOLID principles will be.
-- To know whether a class follow SRP ask &quot;What that class does?&quot; If you have to use the conjunction &quot;and&quot; or &quot;or&quot; the it is likely that class don&#39;t follow SRP
+- To know whether a class follow SRP ask &quot;What that class does?&quot; If you have to use the conjunction &quot;and&quot; or &quot;or&quot; then it is likely that class don&#39;t follow SRP
 
 ### What is meant by “Responsibility” though?
 Uncle Bob quote - 
