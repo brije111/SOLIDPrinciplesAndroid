@@ -3,7 +3,7 @@ package com.example.solidprinciplesandroid.srp;
 import android.app.Activity;
 import android.content.SharedPreferences;
 
-public class Context extends Context{
+public class Context /*extends Context*/{
 
     /*
     I assume this class as android's default Context class

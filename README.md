@@ -260,8 +260,99 @@ public class Context extends Context{
 }
 ```
 
+### 1. Open Close Principle (SRP)
+
+- **Software entities (classes, modules, functions, etc) should be open for extension, but closed for modification**
+- Means if the class A is written by the developer AA, and if the developer BB wants some modification on that then developer BB should be easily do that by extending class A, but not by modifying class A
+
+**Example 1**
+```
+public class TimeOfDayGreeting {
+    private String timeOfDay;
+    /*
+     * Every time this method is called it will
+     * called an if else logic, which is in violation of the
+     * OCP principle.
+     */
+    public String getGreetingFromTimeOfDay() {
+        if (this.timeOfDay == "Morning") {
+            return "Good Morning, sir.";
+        }
+        else if (this.timeOfDay == "Afternoon") {
+            return "Good Afternoon, sir.";
+        }
+        else if (this.timeOfDay == "Evening") {
+            return "Good Evening, sir.";
+        }
+        else {
+            return "Good Night, sir.";
+        }
+    }
+
+    public void setTimeOfDay(String timeOfDay) {
+        this.timeOfDay = timeOfDay;
+    }
+
+    /* Create an interface called TimeOfDay and let the Morning, Afternoon,
+     * Evening classes implement this interface.
+     * This interface can then be called inside the TimeOfDayGreeting class.
+     * This means the getGreetingFromTimeOfDay() method need not handle
+     * any logic
+     */
+    public class TimeOfDayGreetingUpdated {
+        private TimeOfDay timeOfDay;
+
+        public TimeOfDayGreetingUpdated(TimeOfDay timeOfDay) {
+            this.timeOfDay = timeOfDay;
+        }
+
+        public String getGreetingFromTimeOfDay() {
+            return this.timeOfDay.greet();
+        }
+    }
+
+
+    public interface TimeOfDay {
+        public String greet();
+    }
+
+    /*  Morning class  */
+    public class Morning implements TimeOfDay {
+        public String greet() {
+            return "Good morning, sir.";
+        }
+    }
+
+    /*  Afternoon class  */
+    public class Afternoon implements TimeOfDay {
+        public String greet() {
+            return "Good afternoon, sir.";
+        }
+    }
+
+    /*  Evening class  */
+    public class Evening implements TimeOfDay {
+        public String greet() {
+            return "Good evening, sir.";
+        }
+    }
+
+    /*  Night class  */
+    public class Night implements TimeOfDay {
+        public String greet() {
+            return "Good night, sir.";
+        }
+    }
+}
+```
+
+**Example 2**
+
+
  ### Reference
  
  **1.** [https://academy.realm.io/posts/donn-felker-solid-part-1/](https://academy.realm.io/posts/donn-felker-solid-part-1/)
  
  **2.** [https://android.jlelse.eu/single-responsibility-principle-and-context-60e39a28e5bd](https://android.jlelse.eu/single-responsibility-principle-and-context-60e39a28e5bd)
+ 
+ **3.** [https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace](https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace)
