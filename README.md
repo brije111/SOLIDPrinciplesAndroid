@@ -260,7 +260,7 @@ public class Context extends Context{
 }
 ```
 
-### 1. Open Close Principle (SRP)
+### 2. Open Close Principle (SRP)
 
 - **Software entities (classes, modules, functions, etc) should be open for extension, but closed for modification**
 - Means if the class A is written by the developer AA, and if the developer BB wants some modification on that then developer BB should be easily do that by extending class A, but not by modifying class A
@@ -348,6 +348,95 @@ public class TimeOfDayGreeting {
 
 **Example 2**
 
+```
+/*
+    This class got code for calculating area according to Shape.
+    There are many conditions in the code for getting shape specific area.
+    If there is a change in client requirement & now we need to calculate area of Circle shape too.
+    Now we need to modify the Area manager code to write logic of calculating area of new shape circle.
+    This is clearly a violation of OCP.
+ */
+
+public class AreaManager {
+    public double calculateArea(ArrayList<Object>... shapes) {
+        double area = 0;
+        for (Object shape : shapes) {
+            if (shape instanceof Rectangle) {
+                Rectangle rect = (Rectangle)shape;
+                area += (rect.length * rect.height);
+            } else if (shape instanceof Circle) {
+                Circle circle = (Circle)shape;
+                area += (circle.radius * circle.radius * Math.PI);
+            } else {
+                throw new RuntimeException("Shape not supported");
+            }
+        }
+        return area;
+    }
+    public class Rectangle {
+        private double length;
+        private double height;
+    }
+    public class Circle {
+        private double radius;
+    }
+}
+
+/*
+    To Correct this problem, we made a new interface Shape, containing a method "getArea()".
+    Every shape will implement this interface & the logic of area calculation will be written in getArea() method.
+    So in case a new shape will be added in future, there will be no change in AreaManager class.
+    Now it is following the OCP.
+ */
+
+ interface Shape {
+    double getArea();
+}
+
+ class Rectangle implements Shape {
+    private double length;
+    private double height;
+
+    @Override
+    public double getArea() {
+        return (length * height);
+    }
+}
+
+ class Circle implements Shape {
+    private double radius;
+
+    @Override
+    public double getArea() {
+        return (radius * radius * Math.PI);
+    }
+}
+
+ class AreaManagerUpdated {
+    public double calculateArea(ArrayList<Shape> shapes) {
+        double area = 0;
+        for (Shape shape : shapes) {
+            area += shape.getArea();
+        }
+        return area;
+    }
+}
+```
+
+**Example 3 - Android's TextView Class**
+
+Button, CheckedTextView, Chronometer, DigitalClock, EditText, TextClock directly
+and AutoCompleteTextView, CheckBox, CompoundButton, ExtractEditText, MultiAutoCompleteTextView, RadioButton, Switch, ToggleButton indirectly extends
+TextView class and change or update some behavior of Android's default text view.
+So here we can say this class is following OCP.
+
+[image text view class](image/text_view_class.PNG)
+
+**Example 4 - Android's ViewGroup Class**
+
+Same as text view class, AbsoluteLayout, AdapterView<T extends Adapter>, FragmentBreadCrumbs, FrameLayout, GridLayout, LinearLayout, RelativeLayout, SlidingDrawer, Toolbar, TvView are the direct subclasses of View Group class. So we can say ViewGroup class also follow OCP.
+
+[image view group class](image/view_group_class.PNG)
 
  ### Reference
  
@@ -356,3 +445,5 @@ public class TimeOfDayGreeting {
  **2.** [https://android.jlelse.eu/single-responsibility-principle-and-context-60e39a28e5bd](https://android.jlelse.eu/single-responsibility-principle-and-context-60e39a28e5bd)
  
  **3.** [https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace](https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace)
+ 
+ **4.** [https://developer.android.com/reference/android/widget/TextView](https://developer.android.com/reference/android/widget/TextView)

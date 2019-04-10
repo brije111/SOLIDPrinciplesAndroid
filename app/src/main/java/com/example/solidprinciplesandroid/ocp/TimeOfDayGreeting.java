@@ -8,13 +8,13 @@ public class TimeOfDayGreeting {
      * OCP principle.
      */
     public String getGreetingFromTimeOfDay() {
-        if (this.timeOfDay == "Morning") {
+        if (this.timeOfDay.equals("Morning")) {
             return "Good Morning, sir.";
         }
-        else if (this.timeOfDay == "Afternoon") {
+        else if (this.timeOfDay.equals("Afternoon")) {
             return "Good Afternoon, sir.";
         }
-        else if (this.timeOfDay == "Evening") {
+        else if (this.timeOfDay.equals("Evening")) {
             return "Good Evening, sir.";
         }
         else {
@@ -25,55 +25,56 @@ public class TimeOfDayGreeting {
     public void setTimeOfDay(String timeOfDay) {
         this.timeOfDay = timeOfDay;
     }
+}
 
-    /* Create an interface called TimeOfDay and let the Morning, Afternoon,
-     * Evening classes implement this interface.
-     * This interface can then be called inside the TimeOfDayGreeting class.
-     * This means the getGreetingFromTimeOfDay() method need not handle
-     * any logic
-     */
-    public class TimeOfDayGreetingUpdated {
-        private TimeOfDay timeOfDay;
+/* Create an interface called TimeOfDay and let the Morning, Afternoon,
+ * Evening classes implement this interface.
+ * This interface can then be called inside the TimeOfDayGreeting class.
+ * This means the getGreetingFromTimeOfDay() method need not handle
+ * any logic
+ */
 
-        public TimeOfDayGreetingUpdated(TimeOfDay timeOfDay) {
-            this.timeOfDay = timeOfDay;
-        }
+ class TimeOfDayGreetingUpdated {
+    private TimeOfDay timeOfDay;
 
-        public String getGreetingFromTimeOfDay() {
-            return this.timeOfDay.greet();
-        }
+    public TimeOfDayGreetingUpdated(TimeOfDay timeOfDay) {
+        this.timeOfDay = timeOfDay;
     }
 
-
-    public interface TimeOfDay {
-        public String greet();
+    public String getGreetingFromTimeOfDay() {
+        return this.timeOfDay.greet();
     }
+}
 
-    /*  Morning class  */
-    public class Morning implements TimeOfDay {
-        public String greet() {
-            return "Good morning, sir.";
-        }
+
+ interface TimeOfDay {
+    public String greet();
+}
+
+/*  Morning class  */
+ class Morning implements TimeOfDay {
+    public String greet() {
+        return "Good morning, sir.";
     }
+}
 
-    /*  Afternoon class  */
-    public class Afternoon implements TimeOfDay {
-        public String greet() {
-            return "Good afternoon, sir.";
-        }
+/*  Afternoon class  */
+ class Afternoon implements TimeOfDay {
+    public String greet() {
+        return "Good afternoon, sir.";
     }
+}
 
-    /*  Evening class  */
-    public class Evening implements TimeOfDay {
-        public String greet() {
-            return "Good evening, sir.";
-        }
+/*  Evening class  */
+ class Evening implements TimeOfDay {
+    public String greet() {
+        return "Good evening, sir.";
     }
+}
 
-    /*  Night class  */
-    public class Night implements TimeOfDay {
-        public String greet() {
-            return "Good night, sir.";
-        }
+/*  Night class  */
+ class Night implements TimeOfDay {
+    public String greet() {
+        return "Good night, sir.";
     }
 }
