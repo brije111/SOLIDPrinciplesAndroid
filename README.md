@@ -260,7 +260,7 @@ public class Context /*extends Context*/{
 }
 ```
 
-### 2. Open Close Principle (SRP)
+### 2. Open Close Principle (OCP)
 
 - **Software entities (classes, modules, functions, etc) should be open for extension, but closed for modification**
 - Means if the class A is written by the developer AA, and if the developer BB wants some modification on that then developer BB should be easily do that by extending class A, but not by modifying class A
