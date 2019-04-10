@@ -221,7 +221,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 **Example 5 - Android's Context class**
 
 ```
-public class Context extends Context{
+public class Context /*extends Context*/{
 
     /*
     I assume this class as android's default Context class
