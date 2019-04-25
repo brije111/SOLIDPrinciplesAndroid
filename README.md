@@ -438,12 +438,58 @@ Same as text view class, AbsoluteLayout, AdapterView<T extends Adapter>, Fragmen
 
 [image view group class](image/view_group_class.PNG)
 
- ### Reference
+### 3. Liskov Substitution Principle (LSP)
+
+>Child classes should never break the parent class’ type definitions.  
+
+In other words
+
+>Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.
+
+- A subclass should override the parent class’ methods in a way that does not break functionality from a client’s point of view. Here is a simple example to demonstrate the concept.
+- A Behavioral Notion of Subtyping (1994) by Barbara H. Liskov. [link](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.39.1223)  
+
+[Example 1](app\src\main\java\com\example\solidprinciplesandroid\lsp\LSP.java)
+
+[Example 2](app\src\main\java\com\example\solidprinciplesandroid\lsp\AndroidExample.java)
  
- **1.** [https://academy.realm.io/posts/donn-felker-solid-part-1/](https://academy.realm.io/posts/donn-felker-solid-part-1/)
+### 4. Interface Segregation Principle (ISP)
  
- **2.** [https://android.jlelse.eu/single-responsibility-principle-and-context-60e39a28e5bd](https://android.jlelse.eu/single-responsibility-principle-and-context-60e39a28e5bd)
+ >The interface-segregation principle (ISP) states that no client should be forced to depend on methods it does not use.
  
- **3.** [https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace](https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace)
+ In other words
  
- **4.** [https://developer.android.com/reference/android/widget/TextView](https://developer.android.com/reference/android/widget/TextView)
+ > Make fine grained interfaces that are client-specific.
+ 
+ Again in other words
+ 
+ >Many client-specific interfaces are better than one general purpose interface
+ 
+ - This principle states that once an interface becomes too fat, it needs to be split into smaller interfaces so that client of the interface will only know about the methods that pertain to them. As you know, the Android View class is the root superclass for all Android views. You name it, if it’s a Button, the root superclass is View.
+ 
+ [Example](app\src\main\java\com\example\solidprinciplesandroid\isp\ISP.java)
+ 
+ - Android's ViewPager.OnPageChangeListener got three methods
+ ```
+ interface ViewPager.OnPageChangeListener{
+            void onPageScrollStateChanged();
+            void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
+            void onPageSelected(int position);
+        }
+ ```
+ ```
+ interface TextWatcher {
+            void beforeTextChanged(CharSequence s, int start, int count, int after);
+            void onTextChanged(CharSequence s, int start, int before, int count);
+            void afterTextChanged(Editable s);
+        }
+ ```
+ So this need to be segregated into three interfaces to follow ISP. No It's not. These methods are all very specific to the interface and the client will most likely want to interact with them, therefore packaging them together in the same interface is the right thing to do
+ 
+### Reference
+ 
+ **1.** [https://academy.realm.io/posts/donn-felker-solid-part-1/](https://academy.realm.io/posts/donn-felker-solid-part-1/)  
+ **2.** [https://android.jlelse.eu/single-responsibility-principle-and-context-60e39a28e5bd](https://android.jlelse.eu/single-responsibility-principle-and-context-60e39a28e5bd)  
+ **3.** [https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace](https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace)  
+ **4.** [https://developer.android.com/reference/android/widget/TextView](https://developer.android.com/reference/android/widget/TextView)  
+ **5.** [https://developer.android.com/reference/android/view/ViewGroup.html](https://developer.android.com/reference/android/view/ViewGroup.html)
