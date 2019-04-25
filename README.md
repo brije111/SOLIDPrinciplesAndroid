@@ -1,5 +1,7 @@
 # SOLID Principles Android
 
+![build pass](https://travis-ci.org/brije111/SOLIDPrinciplesAndroid.svg?branch=master)
+
 
 SOLID is one of the most important acronyms in the world of Object Oriented Programming.
 
