@@ -448,8 +448,8 @@ In other words
 
 >Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.
 
-- A subclass should override the parent class’ methods in a way that does not break functionality from a client’s point of view. Here is a simple example to demonstrate the concept.
-- A Behavioral Notion of Subtyping (1994) by Barbara H. Liskov. [link](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.39.1223)  
+- First introduced in paper **A Behavioral Notion of Subtyping (1994)** by Barbara H. Liskov. [link](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.39.1223)
+- A subclass should override the parent class’ methods in a way that does not break functionality from a client’s point of view. Here is a simple example to demonstrate the concept.  
 
 [Example 1](app/src/main/java/com/example/solidprinciplesandroid/lsp/LSP.java)
 
@@ -496,3 +496,4 @@ In other words
  **3.** [https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace](https://medium.com/mindorks/solid-principles-explained-with-examples-79d1ce114ace)  
  **4.** [https://developer.android.com/reference/android/widget/TextView](https://developer.android.com/reference/android/widget/TextView)  
  **5.** [https://developer.android.com/reference/android/view/ViewGroup.html](https://developer.android.com/reference/android/view/ViewGroup.html)
+ **6.** [https://stackoverflow.com/questions/56860/what-is-an-example-of-the-liskov-substitution-principle](https://stackoverflow.com/questions/56860/what-is-an-example-of-the-liskov-substitution-principle)
