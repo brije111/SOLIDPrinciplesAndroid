@@ -113,6 +113,13 @@ class ThreeDGame extends Base{
 //This looks fine for an instance but if we look into this deeply we can call addTile(int x, int y) from the instance of ThreeDGame, And that's wrong.
 //For adding tile in ThreeDGame game we must call addTile(int x, int y, int z) not addTile(int x, int y).
 //So here clearly it voilates the Liskov principle as child class breaks parent class type definition.
+//one of the solution can be
+class ThreeDGameModified{
+    Base baseX;
+    Base baseY;
+    Base baseZ;
+}
+
 
 public class LSP {
     // violation of Liskov's Substitution principle
