@@ -48,9 +48,9 @@ Uncle Bob quote -
 - **Software entities (classes, modules, functions, etc) should be open for extension, but closed for modification**
 - Means if the class A is written by the developer AA, and if the developer BB wants some modification on that then developer BB should be easily do that by extending class A, but not by modifying class A
 
-[Example 1](app/src/main/java/com/example/solidprinciplesandroid/lsp/TimeOfDayGreeting.java)
+[Example 1](app/src/main/java/com/example/solidprinciplesandroid/ocp/TimeOfDayGreeting.java)
 
-[Example 2](app/src/main/java/com/example/solidprinciplesandroid/lsp/AreaManager.java)
+[Example 2](app/src/main/java/com/example/solidprinciplesandroid/ocp/AreaManager.java)
 
 **Example 3 - Android's TextView Class**
 
